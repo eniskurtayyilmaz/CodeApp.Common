@@ -32,11 +32,14 @@ jobs:
         run: cd $GITHUB_WORKSPACE
 
       - name: Restore Packages
-        run: nuget restore CodeApp.Oracle.sln
+        run: nuget restore CodeApp.Common.sln
 
       - name: Build Solution
         run: |
-          msbuild.exe CodeApp.Oracle.sln /property:Configuration=Release
+          msbuild.exe CodeApp.Common.sln /property:Configuration=Release
         
-      - name: Run Unit Tests
-        run: vstest.console.exe .\CodeApp.Oracle.Tests\bin\Release\CodeApp.Oracle.Tests.dll
+      - name: Run CodeApp.Common Unit Tests
+        run: vstest.console.exe .\CodeApp.Common.Tests\bin\Release\CodeApp.Common.Tests.dll
+        
+      - name: Run CodeApp.DB Unit Tests
+        run: vstest.console.exe .\CodeApp.DB.Tests\bin\Release\CodeApp.DB.Tests.dll

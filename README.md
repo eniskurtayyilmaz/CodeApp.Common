@@ -1,9 +1,9 @@
-# CodeApp.Oracle
+# CodeApp.Common
 
 | Name | Status |
 | ------ | ------ |
-| Tests | ![Build and Tests](https://github.com/eniskurtayyilmaz/CodeApp.Oracle/actions/workflows/main.yml/badge.svg) |
-| Nuget Published |[![Deploy to NuGet](https://github.com/eniskurtayyilmaz/CodeApp.Oracle/actions/workflows/nuget.yml/badge.svg)](https://www.nuget.org/packages/CodeApp.Oracle/) |
+| Tests | ![Build and Tests](https://github.com/eniskurtayyilmaz/CodeApp.Common/actions/workflows/main.yml/badge.svg) |
+| Nuget Published |[![Deploy to NuGet](https://github.com/eniskurtayyilmaz/CodeApp.Common/actions/workflows/nuget.yml/badge.svg)](https://www.nuget.org/packages/CodeApp.Common/) |
 
 ### Dependency
 - .Net Framework >= 4.5.2
