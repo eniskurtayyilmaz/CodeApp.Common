@@ -73,7 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Docs\2022-05-01-KYCWebServiceDocument.docx" />
     <None Include="Initialize\users.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
