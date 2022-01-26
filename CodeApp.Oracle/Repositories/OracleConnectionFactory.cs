@@ -1,5 +1,6 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System.Data;
+using Dapper;
 
 namespace CodeApp.Oracle.Repositories
 {

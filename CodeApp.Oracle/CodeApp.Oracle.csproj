@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Helpers\ActivityIdHelpers.cs" />
     <Compile Include="Helpers\ConstantHelpers.cs" />
+    <Compile Include="Helpers\IDbConnectionHelpers.cs" />
     <Compile Include="Helpers\IJsonHelpers.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserConfig.cs" />
