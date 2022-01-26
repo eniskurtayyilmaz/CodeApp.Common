@@ -1,0 +1,64 @@
+name: "Deploy to NuGet"
+
+on:
+  push:
+    branches: [ main ]
+    tags:
+    - 'v*'
+
+env:
+  PROJECT_PATH: 'CodeApp.Oracle/CodeApp.Oracle.csproj'  
+  UNITTEST_PROJECT_PATH: 'CodeApp.Oracle.Tests/bin/Release/CodeApp.Oracle.Tests.dll'  
+  SOLUTION_PATH: 'CodeApp.Oracle.sln'
+  PACKAGE_OUTPUT_DIRECTORY: ${{ github.workspace }}\output
+  NUGET_SOURCE_URL: 'https://api.nuget.org/v3/index.json'
+  
+jobs:
+  deploy:
+    name: 'Deploy'
+    runs-on: 'windows-latest'
+    steps:
+    - name: 'Checkout'
+      uses: actions/checkout@v2
+      
+    - name: Setup Timezone
+      uses: szenius/set-timezone@v1.0
+      with:
+        timezoneWindows: "Turkey Standard Time"
+
+    - name: 'Install dotnet'
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '5.0.x'   
+     
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Setup Nuget
+      uses: Nuget/setup-nuget@v1.0.5
+        
+    - name: Setup VSTest
+      uses: darenm/Setup-VSTest@v1      
+      
+    - name: Restore nuget packages
+      run: nuget restore ${{ env.SOLUTION_PATH }}
+      
+    - name: Build
+      run: msbuild ${{ env.SOLUTION_PATH }} /p:Configuration=Release
+      
+    - name: Run Unit Tests
+      run: vstest.console.exe  ${{ env.UNITTEST_PROJECT_PATH }}
+
+    - name: 'Get Version'
+      id: version
+      uses: battila7/get-version-action@v2
+     
+    - name: 'Pack project'
+      run: nuget pack ${{ env.PROJECT_PATH }} -Properties Configuration=Release -OutputDirectory ${{ env.PACKAGE_OUTPUT_DIRECTORY }} -Version 1.0.${{ github.run_number }}
+
+    - name: 'Push package'
+      run: nuget push ${{ env.PACKAGE_OUTPUT_DIRECTORY }}\*.nupkg  ${{ secrets.NUGET_AUTH_TOKEN }} -Source ${{ env.NUGET_SOURCE_URL }}
+   
+
+
+    

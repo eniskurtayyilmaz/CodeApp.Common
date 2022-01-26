@@ -1,0 +1,46 @@
+name: Pull Request Build and Tests
+
+on:  
+  pull_request:
+    branches: [ main ]
+    
+    
+env:
+   IPARA_PUBLICKEY: '${{ secrets.IPARA_PUBLICKEY }}'
+   IPARA_PRIVATEKEY: '${{ secrets.IPARA_PRIVATEKEY }}'
+jobs:  
+  build:    
+    runs-on: windows-latest
+    
+    steps:      
+      - uses: actions/checkout@v2
+      
+      - name: Setup Timezone
+        uses: szenius/set-timezone@v1.0
+        with:
+          timezoneWindows: "Turkey Standard Time"
+      
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
+
+      - name: Setup NuGet
+        uses: NuGet/setup-nuget@v1.0.5
+        
+      - name: Setup VSTest
+        uses: darenm/Setup-VSTest@v1
+
+      - name: Navigate to Workspace
+        run: cd $GITHUB_WORKSPACE
+
+      - name: Restore Packages
+        run: nuget restore iParaClientService.sln
+
+      - name: Build Solution
+        run: |
+          msbuild.exe iParaClientService.sln /property:Configuration=Release
+        
+      - name: Run Unit Tests
+        run: vstest.console.exe .\iParaClientService.Tests\bin\Release\iParaClientService.Tests.dll
+        
+      - name: Run Integration Tests
+        run: vstest.console.exe .\iParaClientService.Integration.Tests\bin\Release\iParaClientService.Integration.Tests.dll

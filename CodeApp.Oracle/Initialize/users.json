@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "userName": "userNameTest1",
+      "password": "passwordTest1"
+    },
+    {
+      "userName": "userNameTest2",
+      "password": "passwordTest2"
+    }
+  ],
+  "connectionString": "connectionStringTest"
+}

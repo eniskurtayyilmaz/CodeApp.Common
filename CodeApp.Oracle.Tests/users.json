@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "userName": "userNameTest1",
+      "password": "passwordTest1"
+    },
+    {
+      "userName": "testUser",
+      "password": "testPassword"
+    }
+  ],
+  "connectionString": "Data Source=(DESCRIPTION =(ADDRESS = (PROTOCOL = TCP)(HOST = 172.19.22.155)(PORT = 1521))(CONNECT_DATA =(SERVER = DEDICATED)(SERVICE_NAME = ORFTSTDB))) ; User Id=finans; Password=Glmnfls78T;"
+}
