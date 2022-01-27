@@ -43,3 +43,6 @@ jobs:
         
       - name: Run CodeApp.DB Unit Tests
         run: vstest.console.exe .\CodeApp.DB.Tests\bin\Release\CodeApp.DB.Tests.dll
+        
+      - name: Run CodeApp.Email Unit Tests
+        run: vstest.console.exe .\CodeApp.Email.Tests\bin\Release\CodeApp.Email.Tests.dll
