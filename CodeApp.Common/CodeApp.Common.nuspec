@@ -9,7 +9,7 @@
     <license type="expression">MIT</license>
     <!-- <icon>icon.png</icon> -->
     <projectUrl>https://github.com/eniskurtayyilmaz</projectUrl>
-    <description>CodeApp Common</description>
+    <description>CodeApp Common depends on your projects.</description>
     <releaseNotes>Summary of changes made in this release of the package. More information https://github.com/eniskurtayyilmaz</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Common depends on your projects.</tags>

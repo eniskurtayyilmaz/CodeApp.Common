@@ -9,7 +9,7 @@
     <license type="expression">MIT</license>
     <!-- <icon>icon.png</icon> -->
     <projectUrl>https://github.com/eniskurtayyilmaz</projectUrl>
-    <description>CodeApp Email</description>
+    <description>CodeApp Email connections and factories depends on your projects</description>
     <releaseNotes>Summary of changes made in this release of the package. More information https://github.com/eniskurtayyilmaz</releaseNotes>
     <copyright>$copyright$</copyright>
     <tags>Email connections and factories depends on your projects.</tags>
