@@ -1,4 +1,5 @@
-﻿using AutoFixture;
+﻿using System.Collections.Generic;
+using AutoFixture;
 using CodeApp.Common.Models;
 using CodeApp.Email.Adapter;
 using FluentAssertions;

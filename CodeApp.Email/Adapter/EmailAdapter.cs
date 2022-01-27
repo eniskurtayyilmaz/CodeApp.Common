@@ -27,32 +27,33 @@ namespace CodeApp.Email.Adapter
         {
             using (MailMessage mailMessage = new MailMessage())
             {
-                foreach (var to in emailMessage.To)
-                {
-                    mailMessage.To.Add(to);
-                }
-
-                foreach (var bcc in emailMessage.Bcc)
-                {
-                    mailMessage.Bcc.Add(bcc);
-                }
-
-                foreach (var cc in emailMessage.Cc)
-                {
-                    mailMessage.CC.Add(cc);
-                }
-
-                if (!string.IsNullOrEmpty(_smtpClient.ReplyAddress))
-                {
-                    mailMessage.ReplyToList.Add(new MailAddress(_smtpClient.ReplyAddress, "reply-to"));
-                }
-
-                mailMessage.From = new MailAddress(_smtpClient.SMTPEmailAddress);
-                mailMessage.Subject = emailMessage.Subject;
-                mailMessage.IsBodyHtml = emailMessage.IsHTMLBody;
-                mailMessage.Body = emailMessage.Body;
                 try
                 {
+                    foreach (var to in emailMessage.To)
+                    {
+                        mailMessage.To.Add(to);
+                    }
+
+                    foreach (var bcc in emailMessage.Bcc)
+                    {
+                        mailMessage.Bcc.Add(bcc);
+                    }
+
+                    foreach (var cc in emailMessage.Cc)
+                    {
+                        mailMessage.CC.Add(cc);
+                    }
+
+                    if (!string.IsNullOrEmpty(_smtpClient.ReplyAddress))
+                    {
+                        mailMessage.ReplyToList.Add(new MailAddress(_smtpClient.ReplyAddress, "reply-to"));
+                    }
+
+                    mailMessage.From = new MailAddress(_smtpClient.SMTPEmailAddress);
+                    mailMessage.Subject = emailMessage.Subject;
+                    mailMessage.IsBodyHtml = emailMessage.IsHTMLBody;
+                    mailMessage.Body = emailMessage.Body;
+
 
                     _smtpClient.Send(mailMessage);
                     return new EmailResult()
