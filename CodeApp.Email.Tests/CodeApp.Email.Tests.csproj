@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{678B86BA-0022-4FC5-B8B5-DC20E2987B75}</ProjectGuid>
+    <ProjectGuid>{BDF75C4A-C3B9-4A0D-ACCE-C81AF006E835}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeApp.DB.Tests</RootNamespace>
-    <AssemblyName>CodeApp.DB.Tests</AssemblyName>
+    <RootNamespace>CodeApp.Email.Tests</RootNamespace>
+    <AssemblyName>CodeApp.Email.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -64,7 +64,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
@@ -78,27 +77,20 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Repositories\OracleConnectionTests.cs" />
+    <Compile Include="Adapters\SmtpClientAdapterTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CodeApp.DB\CodeApp.DB.csproj">
-      <Project>{5B1AF469-1BB6-4610-905A-E5CE96A95917}</Project>
-      <Name>CodeApp.DB</Name>
+    <ProjectReference Include="..\CodeApp.Common\CodeApp.Common.csproj">
+      <Project>{CD6E1578-AB75-46F9-B23F-0D11B14BA174}</Project>
+      <Name>CodeApp.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CodeApp.Email\CodeApp.Email.csproj">
+      <Project>{16A0232E-694C-4C84-B0F3-250049C11C3D}</Project>
+      <Name>CodeApp.Email</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
