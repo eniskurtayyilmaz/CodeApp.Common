@@ -9,8 +9,10 @@ on:
 env:
   COMMON_PROJECT_PATH: 'CodeApp.Common/CodeApp.Common.csproj' 
   DB_PROJECT_PATH: 'CodeApp.DB/CodeApp.DB.csproj'  
+  EMAIL_PROJECT_PATH: 'CodeApp.Email/CodeApp.Email.csproj'  
   UNITTEST_COMMON_PROJECT_PATH: 'CodeApp.Common.Tests/bin/Release/CodeApp.Common.Tests.dll'
   UNITTEST_DB_PROJECT_PATH: 'CodeApp.DB.Tests/bin/Release/CodeApp.DB.Tests.dll'  
+  UNITTEST_EMAIL_PROJECT_PATH: 'CodeApp.Email.Tests/bin/Release/CodeApp.Email.Tests.dll'  
   SOLUTION_PATH: 'CodeApp.Common.sln'
   PACKAGE_OUTPUT_DIRECTORY: ${{ github.workspace }}\output
   NUGET_SOURCE_URL: 'https://api.nuget.org/v3/index.json'
@@ -53,6 +55,9 @@ jobs:
       
     - name: Run CodeApp.DB Unit Tests
       run: vstest.console.exe  ${{ env.UNITTEST_DB_PROJECT_PATH }}
+      
+    - name: Run CodeApp.Email Unit Tests
+      run: vstest.console.exe  ${{ env.UNITTEST_EMAIL_PROJECT_PATH }}
 
     - name: 'Get Version'
       id: version
@@ -63,6 +68,9 @@ jobs:
      
     - name: 'Pack CodeApp.DB project'
       run: nuget pack ${{ env.DB_PROJECT_PATH }} -Properties Configuration=Release -OutputDirectory ${{ env.PACKAGE_OUTPUT_DIRECTORY }} -Version 1.0.${{ github.run_number }}
+      
+    - name: 'Pack CodeApp.Email project'
+      run: nuget pack ${{ env.EMAIL_PROJECT_PATH }} -Properties Configuration=Release -OutputDirectory ${{ env.PACKAGE_OUTPUT_DIRECTORY }} -Version 1.0.${{ github.run_number }}
 
     - name: 'Push all of packages'
       run: nuget push ${{ env.PACKAGE_OUTPUT_DIRECTORY }}\*.nupkg  ${{ secrets.NUGET_AUTH_TOKEN }} -Source ${{ env.NUGET_SOURCE_URL }}

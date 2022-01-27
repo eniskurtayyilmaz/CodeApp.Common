@@ -50,6 +50,24 @@ namespace CodeApp.Common.Tests.Services
             result.Users[0].Password.Should().Be("passwordTest1");
             result.Users[1].UserName.Should().Be("testUser");
             result.Users[1].Password.Should().Be("testPassword");
+
+            result.SMTPAddresses.Should().HaveCount(2);
+            result.SMTPAddresses[0].SMTPAddress.Should().Be("smtpAddress1");
+            result.SMTPAddresses[0].SMTPEmailAddress.Should().Be("smtpEmailAddress1");
+            result.SMTPAddresses[0].SMTPEmailPassword.Should().Be("smtpEmailPassword1");
+            result.SMTPAddresses[0].UseDefaultCredentials.Should().Be(true);       
+            result.SMTPAddresses[0].EnableSSL.Should().Be(true);
+            result.SMTPAddresses[0].Port.Should().Be(1);
+            result.SMTPAddresses[0].ReplyToAddress.Should().Be("replyToAddress");  
+            
+            
+            result.SMTPAddresses[1].SMTPAddress.Should().Be("smtpAddress2");
+            result.SMTPAddresses[1].SMTPEmailAddress.Should().Be("smtpEmailAddress2");
+            result.SMTPAddresses[1].SMTPEmailPassword.Should().Be("smtpEmailPassword2");
+            result.SMTPAddresses[1].UseDefaultCredentials.Should().Be(true);       
+            result.SMTPAddresses[1].EnableSSL.Should().Be(true);
+            result.SMTPAddresses[1].Port.Should().Be(2);
+            result.SMTPAddresses[1].ReplyToAddress.Should().Be("replyToAddress");
         }
 
         [TestMethod]
