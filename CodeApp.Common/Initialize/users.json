@@ -9,5 +9,16 @@
       "password": "passwordTest2"
     }
   ],
-  "connectionString": "connectionStringTest"
+  "connectionString": "connectionStringTest",
+  "smtpAddresses": [
+    {
+      "smtpAddress": "smtpAddress1",
+      "smtpEmailAddress": "smtpEmailAddress1",
+      "smtpEmailPassword": "smtpEmailPassword1",
+      "port": "port1",
+      "useDefaultCredentials": "useDefaultCredentials1",
+      "enableSSL": "enableSSL1",
+      "replyToAddress": "replyToAddress"
+    }
+  ]
 }

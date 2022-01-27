@@ -13,9 +13,13 @@ namespace CodeApp.Common.Models
         public List<User> Users { get; set; }
         [JsonProperty("connectionString", NullValueHandling = NullValueHandling.Ignore)]
         public string ConnectionString { get; set; }
+
+        [JsonProperty("smtpAddresses", NullValueHandling = NullValueHandling.Ignore)]
+        public List<SmtpAddress> SMTPAddresses { get; set; }
         public UserConfig()
         {
             Users = new List<User>();
+            SMTPAddresses = new List<SmtpAddress>();
         }
     }
 }
