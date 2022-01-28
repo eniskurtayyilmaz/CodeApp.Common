@@ -15,11 +15,11 @@ namespace CodeApp.Common.Models
         public string ConnectionString { get; set; }
 
         [JsonProperty("smtpAddresses", NullValueHandling = NullValueHandling.Ignore)]
-        public List<SmtpAddress> SMTPAddresses { get; set; }
+        public List<SmtpAddressConfig> SMTPAddresses { get; set; }
         public UserConfig()
         {
             Users = new List<User>();
-            SMTPAddresses = new List<SmtpAddress>();
+            SMTPAddresses = new List<SmtpAddressConfig>();
         }
     }
 }

@@ -15,10 +15,10 @@ namespace CodeApp.Email.Adapter
     }
     public class SmtpClientAdapter : SmtpClient, ISmtpClient
     {
-        private readonly SmtpAddress _smtpAddress;
+        private readonly SmtpAddressConfig _smtpAddress;
         private string _replyAddress;
 
-        public SmtpClientAdapter(SmtpAddress smtpAddress)
+        public SmtpClientAdapter(SmtpAddressConfig smtpAddress)
         {
             _smtpAddress = smtpAddress;
             this.BuildSMTP();

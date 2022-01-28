@@ -14,7 +14,7 @@ namespace CodeApp.Email.Tests.Adapters
         public void Can_Get_Instance()
         {
             var fixture = new AutoFixture.Fixture();
-            var model = fixture.Create<SmtpAddress>();
+            var model = fixture.Create<SmtpAddressConfig>();
 
             ISmtpClient adapter = new SmtpClientAdapter(model);
 
