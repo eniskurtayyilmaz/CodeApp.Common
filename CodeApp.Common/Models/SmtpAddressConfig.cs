@@ -2,7 +2,7 @@
 
 namespace CodeApp.Common.Models
 {
-    public class SmtpAddress 
+    public class SmtpAddressConfig 
     {
         [JsonProperty("smtpAddress", NullValueHandling = NullValueHandling.Ignore)]
         public string SMTPAddress { get; set; }
@@ -25,7 +25,7 @@ namespace CodeApp.Common.Models
         [JsonProperty("replyToAddress", NullValueHandling = NullValueHandling.Ignore)]
         public string ReplyToAddress { get; set; }
 
-        public void Map(SmtpAddress existQuery)
+        public void Map(SmtpAddressConfig existQuery)
         {
             this.SMTPAddress = existQuery.SMTPAddress;
             this.SMTPEmailAddress = existQuery.SMTPEmailAddress;
