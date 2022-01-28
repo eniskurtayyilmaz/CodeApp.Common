@@ -61,6 +61,14 @@ namespace CodeApp.Email.Adapter
                         Message = "OK"
                     };
                 }
+                catch (SmtpException e)
+                {
+                    return new EmailResult()
+                    {
+                        IsError = true,
+                        Message = e.Message
+                    };
+                }
                 catch (Exception e)
                 {
                     return new EmailResult()
