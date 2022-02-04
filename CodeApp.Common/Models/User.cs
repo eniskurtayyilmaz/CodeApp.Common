@@ -2,7 +2,7 @@
 
 namespace CodeApp.Common.Models
 {
-    public class User
+    public class User : IModel
     {
 
         [JsonProperty("userName", NullValueHandling = NullValueHandling.Ignore)]

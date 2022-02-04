@@ -53,6 +53,7 @@
     <Compile Include="Helpers\ActivityIdHelpers.cs" />
     <Compile Include="Helpers\ConstantHelpers.cs" />
     <Compile Include="Helpers\IJsonHelpers.cs" />
+    <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\SmtpAddressConfig.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserConfig.cs" />

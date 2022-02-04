@@ -2,7 +2,7 @@
 
 namespace CodeApp.Common.Models
 {
-    public class SmtpAddressConfig 
+    public class SmtpAddressConfig  : IModel
     {
         [JsonProperty("smtpAddress", NullValueHandling = NullValueHandling.Ignore)]
         public string SMTPAddress { get; set; }

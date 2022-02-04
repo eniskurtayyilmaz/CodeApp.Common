@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace CodeApp.Common.Models
 {
-    public class UserConfig
+    public class UserConfig : IModel
     {
         [JsonProperty("users", NullValueHandling = NullValueHandling.Ignore)]
         public List<User> Users { get; set; }
