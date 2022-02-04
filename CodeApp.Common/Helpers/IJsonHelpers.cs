@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CodeApp.Common.Models;
+using Newtonsoft.Json;
 
 namespace CodeApp.Common.Helpers
 {
@@ -8,9 +9,13 @@ namespace CodeApp.Common.Helpers
         string GetJsonString(T obj);
     }
 
-    public class JsonHelpers<T> : IJsonHelpers<T>
-
+    public class JsonHelpers<T> : IJsonHelpers<T> where T : IModel
     {
+        public JsonHelpers()
+        {
+                
+        } 
+
         public T GetJsonObject(string json)
         {
             return JsonConvert.DeserializeObject<T>(json);
