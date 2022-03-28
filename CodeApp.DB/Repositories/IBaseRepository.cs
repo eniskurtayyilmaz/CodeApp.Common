@@ -8,12 +8,12 @@ namespace CodeApp.DB.Repositories
 {
     public interface IBaseRepositoryAsync<TRequest>
     {
-        TRequest GetByIdAsync(string id);
-        IEnumerable<TRequest> GetAllAsync();
-        int AddAsync(TRequest entity);
-        int UpdateAsync(TRequest entity);
-        int DeleteAsync(string id);
-        TRequest ExecuteAsync(TRequest model);
+        Task<TRequest> GetByIdAsync(string id);
+        Task<IEnumerable<TRequest>> GetAllAsync();
+        Task<int> AddAsync(TRequest entity);
+        Task<int> UpdateAsync(TRequest entity);
+        Task<int> DeleteAsync(string id);
+        Task<TRequest> ExecuteAsync(TRequest model);
     }
 
     public interface IBaseRepository<TRequest>
@@ -28,12 +28,12 @@ namespace CodeApp.DB.Repositories
 
     public interface IBaseRepositoryAsync<TRequest, TResponse>
     {
-        TResponse GetByIdAsync(string id);
-        IEnumerable<TResponse> GetAllAsync();
-        int AddAsync(TRequest entity);
-        int UpdateAsync(TRequest entity);
-        int DeleteAsync(string id);
-        TResponse ExecuteAsync(TRequest model);
+        Task<TResponse> GetByIdAsync(string id);
+        Task<IEnumerable<TResponse>> GetAllAsync();
+        Task<int> AddAsync(TRequest entity);
+        Task<int> UpdateAsync(TRequest entity);
+        Task<int> DeleteAsync(string id);
+        Task<TResponse> ExecuteAsync(TRequest model);
     }
 
     public interface IBaseRepository<TRequest, TResponse>
