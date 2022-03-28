@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace CodeApp.DB.Repositories
 {
-    public class SqlConnectionFactory : IDatabaseConnectionFactory, IDatabsaeConnectionAsyncFactory
+    public class SqlConnectionFactory : IDatabaseConnectionFactory, IDatabaseConnectionAsyncFactory
     {
         private readonly string _connectionString;
 
