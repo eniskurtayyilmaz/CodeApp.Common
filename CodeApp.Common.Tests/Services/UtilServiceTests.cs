@@ -15,13 +15,13 @@ namespace CodeApp.Common.Tests.Services
     [TestClass]
     public class UtilServiceTests
     {
-        private IJsonHelpers<UserConfig> _jsonHelpers;
+        private IJsonHelpers _jsonHelpers;
         private UtilService _utilService;
 
         [TestInitialize]
         public void Setup()
         {
-            _jsonHelpers = new JsonHelpers<UserConfig>();
+            _jsonHelpers = new JsonHelpers();
             _utilService = new UtilService(_jsonHelpers);
         }
 

@@ -22,10 +22,10 @@ namespace CodeApp.Common.Services
 
     public class UtilService : IUtilService
     {
-        private readonly IJsonHelpers<UserConfig> _jsonHelpers;
+        private readonly IJsonHelpers _jsonHelpers;
         private ILog _logger = LogManager.GetLogger(typeof(UtilService));
         private string _userName = String.Empty;
-        public UtilService(IJsonHelpers<UserConfig> jsonHelpers)
+        public UtilService(IJsonHelpers jsonHelpers)
         {
             _jsonHelpers = jsonHelpers;
         }
@@ -75,7 +75,7 @@ namespace CodeApp.Common.Services
 
         public UserConfig GetUserConfig()
         {
-            var existUserConfig = _jsonHelpers.GetJsonObject(this.GetJsonString());
+            var existUserConfig = _jsonHelpers.DeSerialize<UserConfig>(this.GetJsonString());
             if (existUserConfig == null)
             {
                 string message = $"UserConfig dosyasında bir hata meydana geldi";
