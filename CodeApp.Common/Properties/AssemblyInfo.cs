@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("CodeApp.Common")]
-[assembly: AssemblyDescription("Utils for Oracle Connections depends on your projects.")]
+[assembly: AssemblyDescription("Utils for configs depends on your projects.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CodeApp")]
 [assembly: AssemblyProduct("CodeApp.Common")]

@@ -1,28 +1,46 @@
-﻿using CodeApp.Common.Models;
+﻿using System.Text;
+using CodeApp.Common.Models;
 using Newtonsoft.Json;
 
 namespace CodeApp.Common.Helpers
 {
-    public interface IJsonHelpers<T>
+    public interface IJsonHelpers
     {
-        T GetJsonObject(string json);
-        string GetJsonString(T obj);
+        T DeSerialize<T>(string json);
+        string Serialize(object obj);
+        byte[] SerializeAsByteArray(object value);
     }
 
-    public class JsonHelpers<T> : IJsonHelpers<T> where T : IModel
+    public class JsonHelpers : IJsonHelpers 
     {
         public JsonHelpers()
         {
                 
-        } 
-
-        public T GetJsonObject(string json)
-        {
-            return JsonConvert.DeserializeObject<T>(json);
         }
-        public string GetJsonString(T obj)
+
+        private readonly JsonSerializerSettings _serializeOptions = new JsonSerializerSettings()
         {
-            return JsonConvert.SerializeObject(obj, Formatting.Indented);
+            Formatting = Formatting.Indented,
+            ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+            PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None,
+            Culture = System.Globalization.CultureInfo.CurrentCulture,
+            DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Local
+        };
+        
+
+        public T DeSerialize<T>(string json)
+        {
+            return JsonConvert.DeserializeObject<T>(json, _serializeOptions);
+        }
+
+        public string Serialize(object obj)
+        {
+            return JsonConvert.SerializeObject(obj, _serializeOptions);
+        }
+
+        public byte[] SerializeAsByteArray(object value)
+        {
+            return Encoding.UTF8.GetBytes(Serialize(value));
         }
     }
 }

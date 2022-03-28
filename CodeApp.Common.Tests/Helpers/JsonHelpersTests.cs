@@ -17,7 +17,7 @@ namespace CodeApp.Common.Tests.Helpers
         public void Can_Get_Object_By_Json_UserConfig()
         {
             string json = Properties.Resources.UserJson;
-            var userConfig = new JsonHelpers<UserConfig>().GetJsonObject(json);
+            var userConfig = new JsonHelpers().DeSerialize<UserConfig>(json);
 
             userConfig.Should().NotBeNull();
 
