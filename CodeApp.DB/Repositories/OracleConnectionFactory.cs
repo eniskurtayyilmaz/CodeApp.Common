@@ -5,7 +5,7 @@ using Dapper;
 
 namespace CodeApp.DB.Repositories
 {
-    public class OracleConnectionFactory : IDatabaseConnectionFactory, IDatabsaeConnectionAsyncFactory
+    public class OracleConnectionFactory : IDatabaseConnectionFactory, IDatabaseConnectionAsyncFactory
     {
         private readonly string _connectionString;
 

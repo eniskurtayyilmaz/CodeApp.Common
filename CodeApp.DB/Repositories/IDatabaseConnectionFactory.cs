@@ -8,7 +8,7 @@ namespace CodeApp.DB.Repositories
         IDbConnection CreateConnection();
     }
 
-    public interface IDatabasaeConnectionAsyncFactory
+    public interface IDatabaseConnectionAsyncFactory
     {
         Task<IDbConnection> CreateConnectionAsync();
     }
