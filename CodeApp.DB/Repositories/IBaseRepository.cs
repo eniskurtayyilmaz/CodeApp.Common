@@ -18,7 +18,7 @@ namespace CodeApp.DB.Repositories
 
     public interface IBaseRepository<TRequest>
     {
-        TResponse GetById(string id);
+        TRequest GetById(string id);
         IEnumerable<TRequest> GetAll();
         int Add(TRequest entity);
         int Update(TRequest entity);
