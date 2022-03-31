@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using CodeApp.Common.Models;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 
 namespace CodeApp.Common.Helpers
 {
@@ -24,7 +25,8 @@ namespace CodeApp.Common.Helpers
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
             PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.None,
             Culture = System.Globalization.CultureInfo.CurrentCulture,
-            DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Local
+            DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Local,
+            ContractResolver = new CamelCasePropertyNamesContractResolver(),
         };
         
 
